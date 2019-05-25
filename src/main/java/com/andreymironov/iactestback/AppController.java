@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -16,6 +15,8 @@ import java.util.List;
 @CrossOrigin
 @Controller
 public class AppController {
+	private static String HOME = System.getProperty("user.home");
+
     @PostMapping(value = "/postdir")
     public @ResponseBody Dir postDir(
             @RequestParam(name = "path", required = true) String path
