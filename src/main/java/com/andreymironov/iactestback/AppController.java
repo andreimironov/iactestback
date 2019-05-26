@@ -19,8 +19,6 @@ import java.time.LocalDateTime;
 @CrossOrigin
 @Controller
 public class AppController {
-	private static String HOME = System.getProperty("user.home");
-
 	@Autowired private DirRepository dirRepository;
 
     @PostMapping(value = "/postdir")
@@ -62,11 +60,5 @@ public class AppController {
     Iterable<Dir> getDirs() {
         log.debug(String.format("%s::getDirs()", this.getClass().getName()));
         return dirRepository.findAll();
-    }
-
-    @GetMapping(value = "/home")
-    public @ResponseBody
-    String getHome() {
-        return HOME;
     }
 }
